@@ -31,7 +31,7 @@ const defaultHandle = (type) => {
     textNode: { source: ["output"], target: [] },
     outputNode: { source: [], target: ["input"] },
     emailNode: { source: [], target: ["input"] },
-    llmNode: { source: ["output"], target: ["input", "input"] },
+    llmNode: { source: ["output"], target: ["input"] },
   };
 
   return handle[type];
