@@ -13,8 +13,7 @@
   border: 1px solid #212529;
   border-radius: 5px;
   padding: 0.8rem;
-  width: 300px;
-  max-width: 450px;
+  min-width: 300px;
   height: auto;
 }
 
@@ -67,16 +66,18 @@
 }
 
 .content-container textarea {
-  display: flex;
-  width: auto;
+  display: block;
   min-width: 100%;
-  border: none;
-  margin-block: 0.25rem;
-  outline: none;
-  border-radius: 2px;
-  resize: none;
-  padding: 0.5rem;
+  max-width: 400px;
+  field-sizing: content;
   scrollbar-width: none;
+  margin-block: 0.25rem;
+  padding: 0.5rem;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 16px;
 }
 
 .emailNode-container input {
