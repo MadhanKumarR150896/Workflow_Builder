@@ -1,7 +1,7 @@
 export const RenderOutputNode = ({ id, data, dataMode, onModeChange }) => (
   <>
     <label>
-      Format:
+      Format
       <select
         value={dataMode}
         onChange={onModeChange}
@@ -14,7 +14,7 @@ export const RenderOutputNode = ({ id, data, dataMode, onModeChange }) => (
     <div>
       {dataMode === "text" && (
         <label>
-          Output:
+          Output
           <pre
             style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}
             className="nodrag nowheel"
@@ -25,7 +25,7 @@ export const RenderOutputNode = ({ id, data, dataMode, onModeChange }) => (
       )}
       {dataMode === "file" && data?.files?.length > 0 && (
         <label>
-          Download:
+          Download
           <ul style={{ listStyle: "none" }}>
             {data.files.map((file, index) => (
               <li key={`${id}-file${index + 1}`}>
@@ -45,7 +45,7 @@ export const RenderOutputNode = ({ id, data, dataMode, onModeChange }) => (
 
       {dataMode === "file" && (!data?.files || data?.files.length === 0) && (
         <label>
-          Download:
+          Download
           <div>File not found</div>
         </label>
       )}

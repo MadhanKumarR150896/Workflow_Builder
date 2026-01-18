@@ -4,6 +4,7 @@ import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "../utils/store.js";
 import { useShallow } from "zustand/shallow";
 import { GenericNode } from "../utils/genericNode.jsx";
+import './ui.css';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -14,6 +15,7 @@ const nodeTypes = {
   textNode: GenericNode,
   emailNode: GenericNode,
 };
+
 
 const selector = (state) => ({
   nodes: state.nodes,
@@ -102,7 +104,7 @@ export const PipelineUI = () => {
 
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: "100vw", height: "70vh" }}>
+      <div ref={reactFlowWrapper} className="ui-zone">
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -116,6 +118,7 @@ export const PipelineUI = () => {
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
+          connectionLineStyle={{ stroke: '#495057', strokeWidth: 2 }}
           className="nowheel"
         >
           <Background color="#000" gap={gridSize} />

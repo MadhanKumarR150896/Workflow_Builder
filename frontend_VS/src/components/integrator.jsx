@@ -1,16 +1,20 @@
 import { useStore } from "../utils/store";
 import { useShallow } from "zustand/shallow";
+import './integrator.css'
+import { useState } from "react";
 
 const selector = (state) => ({
   nodes: state.nodes,
   edges: state.edges,
 });
 
-export const SubmitButton = () => {
+export const PipelineIntegrator = () => {
   const { nodes, edges } = useStore(useShallow(selector));
   const API_URL = import.meta.env.VITE_API_URL;
 
-  async function sendPipeline() {
+  const [pipelineData, setPipelineData] = useState(null);
+
+ async function sendPipeline() {
     try {
       const response = await fetch(`${API_URL}/pipelines/parse`, {
         method: "POST",
@@ -20,7 +24,10 @@ export const SubmitButton = () => {
         body: JSON.stringify({ nodes, edges }),
       });
       const data = await response.json();
-      console.log(data);
+      console.log(data)
+
+      setPipelineData(data);
+     
     } catch (error) {
       console.error(
         "Couldn't provide the required data, please check the request",
@@ -29,17 +36,18 @@ export const SubmitButton = () => {
     }
   }
 
+  
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <button
+    <div className="integrator">
+      {pipelineData && (
+        <div className="pipeline-alert">
+        <span>Total Nodes : <strong>{pipelineData?.num_nodes}</strong></span>
+        <span>Total Edges : <strong>{pipelineData?.num_edges}</strong></span>
+        <span>Is DAG : <strong>{pipelineData?.is_dag ? "Absolutely" : "Not this time"}</strong></span>
+      </div>
+      )}
+      <button className="submit-button"
         onClick={sendPipeline}
-        style={{ backgroundColor: "#000", color: "#fff" }}
         type="submit"
       >
         Submit

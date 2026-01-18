@@ -26,7 +26,7 @@ export const RenderEmailNode = ({ id, data, updateNodeData }) => {
   return (
     <>
       <label>
-        To:
+        To
         <input
           value={inputData.email}
           onChange={(event) => {
@@ -37,7 +37,7 @@ export const RenderEmailNode = ({ id, data, updateNodeData }) => {
         />
       </label>
       <label>
-        Subject:
+        Subject
         <input
           value={inputData.subject}
           onChange={(event) => {

@@ -1,14 +1,14 @@
-import "./App.css";
 import { PipelineToolbar } from "./components/toolbar";
 import { PipelineUI } from "./components/ui";
-import { SubmitButton } from "./components/submit";
+import { PipelineIntegrator } from "./components/integrator";
+import "./App.css";
 
 function App() {
   return (
-    <div className="app-area">
+    <div className="app">
       <PipelineToolbar />
       <PipelineUI />
-      <SubmitButton />
+      <PipelineIntegrator />
     </div>
   );
 }

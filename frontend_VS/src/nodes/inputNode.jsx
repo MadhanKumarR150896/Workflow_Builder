@@ -11,7 +11,7 @@ export const RenderInputNode = ({
 }) => (
   <>
     <label>
-      Format:
+      Format
       <select
         value={dataMode}
         onChange={onModeChange}
@@ -24,20 +24,19 @@ export const RenderInputNode = ({
     <div>
       {dataMode === "text" && (
         <label>
-          Input:
+          Input
           <TextareaAutosize
-            style={{ width: "100%", height: "auto" }}
             value={dataText}
             onChange={onTextChange}
             className="nodrag nowheel"
-            minRows={3}
+            minRows={4}
             maxRows={10}
           />
         </label>
       )}
       {dataMode === "file" && (
         <label>
-          Upload:
+          Upload
           <input
             className="nodrag nowheel"
             type="file"

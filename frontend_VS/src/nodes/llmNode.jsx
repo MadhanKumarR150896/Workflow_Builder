@@ -9,7 +9,7 @@ export const RenderLLMNode = ({
 }) => (
   <>
     <label>
-      Model:
+      Model
       <select
         value={data?.model ?? "model-1"}
         onChange={(event) => {
@@ -23,12 +23,12 @@ export const RenderLLMNode = ({
     </label>
     <div>
       <label>
-        Prompt:
+        Prompt
         <TextareaAutosize
           value={dataText}
           onChange={onTextChange}
           className="nodrag nowheel"
-          minRows={3}
+          minRows={4}
           maxRows={10}
         />
       </label>

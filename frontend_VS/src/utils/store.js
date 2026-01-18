@@ -42,8 +42,9 @@ export const useStore = create((set, get) => ({
         {
           ...connection,
           type: "smoothstep",
+          style: { stroke: '#495057', strokeWidth: 2 },
           animated: true,
-          markerEnd: { type: MarkerType.Arrow, height: "20px", width: "20px" },
+          markerEnd: { type: MarkerType.Arrow, height: "20px", width: "20px", color:"#495057" },
         },
         get().edges
       ),

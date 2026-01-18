@@ -28,13 +28,13 @@ export const GenericNode = memo(({ id, type, data }) => {
   };
 
   return (
-    <div style={{ border: "1px solid black" }}>
-      <div className={`${type}`}>
+    <div className="generic-node">
+      <div className="node-title">
         <span>{type}</span>
       </div>
-      <div className={`${type}-name`}>
+      <div className="node-name">
         <label>
-          Name:
+          Name
           <input
             className="nodrag nowheel"
             type="text"
@@ -43,7 +43,7 @@ export const GenericNode = memo(({ id, type, data }) => {
           />
         </label>
       </div>
-      <div>
+      <div className={`${type}-container content-container`}>
         <RenderContentMarkup
           id={id}
           type={type}
