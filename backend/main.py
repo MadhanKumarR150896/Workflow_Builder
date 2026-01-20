@@ -1,15 +1,21 @@
+import os
 from fastapi import FastAPI, Body
+from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 import networkx as nx
 
+load_dotenv()
 
 app = FastAPI()
 
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
-    allow_methods=["POST", "OPTIONS"],
-    allow_headers=["Content-Type"]
+    allow_origins=[FRONTEND_URL],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
 )
 
 @app.get('/')
